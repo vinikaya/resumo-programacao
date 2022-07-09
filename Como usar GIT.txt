@@ -1,0 +1,62 @@
+git .init --- usa esse comando na pasta que deseja utiizar o git
+
+git status -- mostra o status dos arquivos n apasta, exemplo os arquivos alterados e arquivos que não foram trakeados ainda.
+
+git commit -m "nome do commit"  -- criando um commit.
+
+git log --- para saber os comites que foram feitos.
+
+git add -A  --- vai traquear todos os arquivos que ainda não foram traqueados. após traquear tem que fazer um commit para que os arquivos novos e alterados sejam subidos para o git.
+
+git commit -am "frase do commit" --- nisso ele adciona alterações em arquivos já existentes no git e faz o commit ao mesmo tempo.
+
+git add nome arquivo  -- vai traquar somente esse arquivo.
+
+git diff --- ele mostra as alterações que foram feitas em todos os arquivos arquivos com detalhes. Usar antes de commitar.
+
+git diff --name-only --- ele vai mostrar somente o nome dos arquivos que foram alterados.
+
+git diff arquivo.js --- mostra as alterações somente nesse arquivo. 
+
+git diff -------- tem uma ferramente no vscode na lateral esquerda chamada SOURCE CONTROL, ele mostra as alterações no arquivo, comparando o arquivo antigo com o alterado lado a lado.
+
+git checkout HEAD -- style.css --- ele vai voltar somente esse arquivo selecionado caso que voce não queira adicinar e comitar ele.(o HEAD indica branch do arquivo, porem usando o HEAD ele substitui pela branch atual).
+
+
+
+		RESETAR UMA CoMMIT(VOLTAR UM AVERSÃO DO ARQUIVO)
+
+git reset --soft 21ef249fe87453baf9ecc4685e545975cc624f42 --- esse numero é o hash do commit a ser resetado.
+
+git reset --soft --- ele vai voltar a versão porem anterior,  com as alterações na pasta traqueadas mas não commitadas.(ele volta a versão mas deixa com acesso as alterações para corrigir ou olhar etc.).
+
+git reset --mixed --- ele faz a mesma coisa porem os aquivos não voltam traqueados, porem voltam na pasta.
+
+git reset --hard ---  ele apaga com a commit resetada, tudo na commit que foi resetada some.
+
+		BRANCH (é uma linha do tempo diferente para o mesmo arquivo, apartir da criação do novo branch pode ser criado novos arquivos e etc, e um não afetara o outro)
+
+git branch teste --- assim se cria um novo branch.
+
+git branch --- mostra os branchs q existem e oque voce está.
+
+git checkout teste --- muda de um branch para o outro
+
+
+      	REMOTE GITHUB
+
+git remote add origin https://github.com/vinikaya/123.git ---adciona esse repositorio no repositorio do github.(executa esse comando na pasta a ser enviada)
+
+git push -u origin master --- envia arquivos para o repositorio(origem é o repositorio do github e master é o branch no pc). Toda vez que alterar algo no codigo tem q usar esse comando para enviar ao github, antes de usar usar o git status para sabe se tem algo a ser trakeado.
+
+		FAZER O GIT IGNORAR ARQUIVOS OU TIPOS DE ARQUIVOS(GITIGNORE)
+	
+Dentro da pasta do projeto criar um novo arquivo chamado ".gitignore", dentro desse arquivo escrever oque deve ser ignorado pelo git, exemplo: backup_de_usuarios.sql ou *.txt(para ignorar arquivos de texto) ou *.css ou *.js e etc.
+Pode colocar um nome na frente do arquivo para, exemplo: exemplo.gitignore
+
+		GIT REVERSE
+
+git reverse --no-edit a73897890bcfb7e986ea8bc357bd4199e8cd0fc6 --- O commit deu erro na ultima hora da sexta feira, então vc da um reverse nesse commit para desfazer as alterações porem não apagar esse commit, e na segunda voce volta na commit com erro para arrumar. 
+Ele cria um novo comit com o mesmo nome porem falando que é o reverse, esse novo commit não tera as alterações feitas no commit usado no reverse, porem voce pode recuperar esse commit depois para concertar os erros.
+
+git reset --hard a73897890bcfb7e986ea8bc357bd4199e8cd0fc6 --- dessa forma voce volta o commit que foi usado no reverse na sexta feira, recuperando tudo.

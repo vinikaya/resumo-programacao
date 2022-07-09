@@ -1,0 +1,278 @@
+CSS:
+* {
+box-sizing: border-box;  = serve para todos os formatos vão ter o tamanho exato escrito sem somar weidth e heigth.
+}
+
+.link:hover {color:red;}   = serve para mudar o texto ao passar o mouse em cima.
+
+.link:visited {color:pink;}  = mudar quando o link já foi acessado pelo navegador.
+
+formatar texto pelo css:
+font-size:5px; tamanho da font.
+font-weight:bold; deixa negrito.
+font-family:qualquer fonte, arial; muda a fonte do texto.(depois da virgula são as opções caso o windows não tenha a primeira font, podem ter varias virgulas).
+text-align:left; alinhamento do texto( left, right, center, justify);
+text-decoration: none; deixa sem decoração(line-through= riscado na palavra)
+text-transform:uppercase; muda o texto de acordo com o sugerido(lowercase)
+letter-spacing:5px; espaçamento entre letras.
+word-spacing:5px;  espaçamento entre as palavras.
+line-height: 10px; espaço entre as linhas.
+text-shadow:0px 2px 3px red; coloca sombra no texto(1° distancia direita sombra, 2° distancia sombra pra baixo,3° esfumaçamento da sombra,4°cor da sombra).
+
+flex-direction:row; = os objetos ficam na orientação horizontal.
+flex-direction:column; = os objetos ficam na orientação vertical.
+
+display: block  = cada formulario é separado por bloco.
+
+padding: 20px; é como uma margem mas para dentro.
+
+IMPORTANTE: 
+unidade de medida "em" quando usada ele pega o valo da tag pai e mutiplica pelo valor.
+rem: igual "em" mas pega as medidas do primeiro elemento(normalmente html).
+exemplo: 10px => 2em = 20px
+bom para o site ficar responsivo, e trabalhar o site tomando uma medida como referencia.
+
+tipos de unidade de medida:
+ch = de acordo com o tamanho da fonte.
+%= coloca a porcentagem do espaço do elemento
+vh = baseado no espaço disponivel da tela inteira.
+vw = baseado na largura disponivel na tela.
+
+inherit = usado ( .box h1) o <h1> dentro do box vai herdar. força a herdar os atributos.
+
+object-fit: = diz como a imagem vai se comportar ao definir um tamanho pra ela usando as opções a baixo: 
+ contain; ele redimenciona a imagem sem distorcer.
+ fill; dimensiona a imagem distorcendo.
+ cover; mantem a proporção mas corta a imagem para preencher todo o espaço.
+ none; somente corta a imagem para caber no tamanho.
+ obs: mais utilizada: cover.
+
+        RESPONSIVIDADE:
+
+@media (min-width: 500px) {  }  serve para colocar uma propriedade somente quando o dispositivo tiver os atributos selecionado dentro de ( ).obs: bom para adaptar sites para telas menores.
+
+@media(orientatio:landscape) { vai ativar quando a tela estiver majoritariamente na horizontal }
+@media(orientatio:portrait) { vai ativar quando a tela estiver majoritariamente na vertical }
+
+@media(aspect-ratio: 4/3) { } é ativado quanto a tela tem a proporção de 4:3 ou a que for selecionada.
+@media(max-spect-ratio: 4/3) { }. ou min, é ativada quando a tela tem no maximo aquela proporção.
+
+   CRIAR VARIAVEL PARA :
+no inicio do arquivo css(para valer em todo o codigo, mas pode ser criado em qualquer elemento somente a variavel):
+:root {
+ --bg-color: blue; (back-ground-color)
+--font-size: 25px;
+}
+como usar:
+div { color: var(--nome); }
+
+usar no 
+@media(max-width:450px) { 
+  :root{
+      --font-size:15px;
+  }
+} = ele vai mudar o tamanho da variavel no :root e afetar o resto do codigo caso ocorra o entre parenteses(). 
+
+Função calc:
+width: calc(100% - 20px); essa função está calculando 100% do tamanho do site menos 20px(usa assim para não quebrar o site).
+
+biblioteca que reseta alguns elementos para funcionar em todos os navegadores de forma padrão e corrigi bugs. subistituto do css reset.
+https://github.com/necolas/normalize.css/
+
+border-radius: 10px;  dexa as bordas arredondadas.
+border-top-left-radius: 10px; deixa somente a borda superior esquerda redonda.
+border-bottom-right-radius; deixa a borda inferior da direita redonda.
+
+adicionar degradê e suporte para outros navegadores
+    background: linear-gradient(green,blue,red);
+    background:-moz-linear-gradient(green,blue,red);
+    background:-o-linear-gradient(green,blue,red);
+    background:-webkit-linear-gradient(green,blue,red);
+todos são iguais mudando o primeiro termo, para dar suporte a esse efeito em outros navegadores.
+ -- mudar o angulo do degradê
+    background: linear-gradient(-75deg,green,blue,red);
+
+colocar sombra no elemento.
+box-shadow: 10px 10px 30px #8888;
+
+
+
+efeito de transição, serve em combo com o hover(passar o mouse em cima muda)
+    .exemplo{
+    widht: "30px";
+    transition: all 1s linear; - existem varios tipos alem do linear, pesquisar.
+    }   
+
+   exemplo:hover{
+    widht:"50px";
+      }
+como o transition o efeito de transição é suave de acordo como configurado.
+
+
+
+serve para esconder oque quebrar o bloco.
+    overflow: hidden;
+
+word-wrap, serve para quebrar a frase para não ultrapassar o limite do bloco.
+     word-wrap: break-word;
+
+FLEXBOX
+
+display:flex; dizer que nesse bloco os elementos são flexiveis.
+
+flex-direction:rown; diz qual direção os elementos vão se organizar.(vem padrão row).
+
+flex:1; prencher o espaço com os elementos.
+
+flex-wrap:wrap; aos elementos ficarem maior quebrar a linha para ficar do tamanho desejado.
+pode usar no lugar o flex-direction: row wrap;
+
+justfy-content: center; para colocar o conteudo do bloco no centro, com flexbox.
+
+align-self: flex-end; serve para o item se alinhar, sobrescrevendo o container.
+
+align-content: center; quando tem quebra de linha com o wrap, ele alinha todo o conteudo sem bugar.
+
+
+     estilizar selecionando pelo atributo, exemplos:
+         imput[required] { color:#fff} - tags imput com atributo required serão estilizados.
+         input[type=password] {margin-top:20px;}
+         [required] {color:#fff}
+         
+     selecionar pelo texto, exemplo:
+         a[href*="economia"]{margin:20px;} - dentro do href ele vai procurar os que tem o termo economia.(*= serve para procurar dentro do href)
+         
+     selecionando pelo primeiro termo, exemplo:
+     	 a[href^⁼"http:"] {color: blue} - ^= serve para selecionar os itens com esse valor.
+     	 
+     selecionando pelo ultimo termo, exemplo:
+     	 a[href$⁼"http:"] {color: blue} 
+     	 
+     selecionar elemento sem conteudo:
+     	div:empty {color:blue}
+     	
+     selecionando a primeira letra de um elemento:
+     	p::first-letter {font-size:25px;}
+     
+     selecionando primeira linha inteira:
+     	p::first-line {color:blue;}
+     	
+     selecionando o primeiro e ultimo elemento:
+     	div:fist-chield {color:blue;} - a primeira div vai ficar azul
+     	div:last-chield {color:blue;} - ultima div vai ficar azul.
+     	
+     seletor negativo, selecionar todos menos esse:
+     	:not(input){color;blue;} - todos menos as tags input vão ficar azul,(dentro do parentese pode ter atributo, classe etc).
+     	
+     selecionar um item especifico em qualquer posição:
+     	div:nth-chield(2){color:blue;} - a segunda div vai ficar azul.
+     	div:nth-last-chield(2){color:blue;} - a segunda div de baixo pra cima vai ficar azul.
+     	
+     adicionar um texto ou algo depois ou antes do elemento:
+     	div::after{
+     	content:"<-"
+     	}               depois do texto da div vai ter essa seta exemplo - "pagina 1<-".
+     	
+     	div::before{
+     	content:"->"
+     	}         exemplo - "->pagina1"
+     	
+     	criar quadrado com o after e before sem um elemento:
+     	    	div::after{
+     	content:'';+
+     	display:block; - precisa para criar um bloco. normalmente fica a baixo do elemento, para ficar ao lado usa - inline-block.
+     	widht: 20px;
+     	height:20px;
+     	position:absolute; - para o quadrado separar da div e ficar flutuante.
+     	border-color: blue trasnparent trasnparent trasnparent; somente o primeiro lado vai ter cor, dando a ilusão que é um triangulo.
+     	}        
+     	
+adicionar trasnparencia em uma cor;RGBA
+background-color:rgba(255, 0, 0, 0.5) o ultimo é a transparencia. unico jeito de usar trasnparencia.
+
+transform:scale(1); muda a escala do elemento, nesse caso não muda pois a escala está em 1.
+transform:scalex(2) muda a escala na horizontal. y na vertical.
+
+transform:rotate(30deg) rodar 30 graus no sentido horario.
+
+transform:skew(20deg) destorce o objeto 
+transfotm:skewx(20deg)
+
+box-sizing:border-box; significa que as bordar vão se inlcuir no tamanho do elemento.
+
+    Estilizando o placeholder
+           .input::placeholder {color:blue; }
+           .inpu::-webkit-input-placeholder{color:blue; } para usar em navegadores antigos, pesquisar para quais navegadores quer usar.
+           
+
+
+
+           -------------------------->CSS GRID<--------------------
+Para usar o grid 
+Display:grid;
+
+colocar espaçamento entre os elementos,
+gap:20px;(mais atualizado porem alguns navegadores não foram atualizados) ou grid-gap:20px; Coloca espaço entre o elemento como se fosse um margim
+colum-gap ou row-gap para colocar o espaço ou nas calonas ou nas linhas.
+       	
+criar colunas e moldalas
+	grid-template-columns: 100px 100px auto; vai separar em três colunas e a ultima ira ocupar o espaço restante pois está em auto.
+	grid-template-rows:100px 100px; muda o tamanho das linhas porem depende da quantidade de elementos, pois pode n ter a quantidade de linha desejada.
+ 
+ 	Unidade de medida FR, é uma fração para dividir o grid de forma responsiva.
+ 		grid-template-columns: 1fr 1fr 2fr; vai ser dividido 3 vezes de forma responsiva e o 2fr sera duas vezes o tamanho do 1fr e 3fr é 3x o tamanho, é uma forma de fazer todos os elementos mudarem de tamanho pra caber outro e ficar responsivel.
+ 	
+ 	Comando REAPET(); serve para repetir o tamanho colocado.
+ 		grid-template-columns: reapt(3, 1fr); mesma coisa que( 1fr 1fr 1fr).
+ 		
+ 	pode ser usado com tamanhos diferentes:
+ 		grid-template-columns: reapt(2, 1fr) 200px; tera duas colunas de tamanho 1fr e uma de 200px totalizando 3 colunas.
+ 		
+ 	ele repete o valor e pode fazer tamanhos alternados:
+ 		grid-template-columns: repeat(2, 100px 200px); dessa forma ira ficar a primeira e a segunda coluna com 100px e 200px e a terceira e a ultima com 100px e 200px. pode usar mais de um reapt no mesmo comando.
+ 		
+ 	como fazer quatro colunas do mesmo tamanho:
+ 		grid-template-columns: repeat(4, 1fr); ou repeat(4, auto);
+ 		
+ 		grid-template-columns: repeat(auto-fill, 200px); ele vai criar colunas de 200px até o não caber mais.
+ 	
+ 	deixar um tamnho minimo e maximo para deixar os elementos responsiveis
+ 		grid-auto-rows: minmax(50px, 100px); o tamanho minimo é 50px e o maximo é 100px, pode usar o tamanho do maximo como "auto" para aumentar quanto necessario.
+ 		grid-template-columns: repeat(2, minmax(200px,1fr)); outra forma de mecionar o repeat do grid
+ 		
+ 		
+ 	Posicionamento no Grid
+ 		justfy-content: center; funciona para posicionar grid
+ 		align-content: center;
+		
+		servem para posicionar e mencionar os elementos da grid
+		grid-column-start:1; definir em qual coluna o elemento vai começar
+		grid-column-end:2; definir em qual coluna o elemento vai terminar
+		grid-row-start:1;
+		grid-row-end:2;	
+		
+		forma de resumir o "grid-column-start e end" 
+			-> grid-column: 1/4; start e end respectivamente, mesma coisa com o grid-row: 1/4;
+	       	
+	       		grid-column: 1/ span 2; o span faz com q ele se alinhe com o numero de elementos e não linhas imaginarias, no caso ele vai se alinhar no 2 elemento.
+	       	
+	       	resumir mais o grid-column e grid-row:
+	       		grid-area: 1 / 1 / span 2 / span 2; (não é muito ultilizado pois não é tão facil de ler e entender).
+			1-grid-row-start
+			2-grid-column-start
+			3-grid-row-end
+			4-grid-column-end 
+       
+       	Posicionado as grid com template-area:
+       		 grid-template-areas: (dessa forma fica muito mais facil de dimensionar as colunas e linhas).
+			"item1 item1"
+			"item2 item3"
+			"item4 item4"
+   		 ;
+       		
+       		div { grid-area:item1;} deve dar nome aos elementos para poder modelar usando template-area.
+	
+       	
+       
+       
+           

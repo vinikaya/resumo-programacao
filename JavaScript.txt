@@ -1,0 +1,376 @@
+java script
+para linkar o script no html
+
+	<script src="script.js"></script> (colado no final do Body pois assim ele carrega toda a pagina antes de carregar os scripts.
+	
+colocar no console do navegador typeof nomeDaVariavel retorna o tipo dela.
+
+//para colocar um comentario na linha.
+
+Manipulando classes,
+	document.querrySelector('button').ClassList.contais('preto'));
+	
+	document.GetElementById("Title")innerHTML = "trocou o titulo"
+
+Dimensões no JavaScript,
+	document.querrySelector('.texto').offsetHeight - - ele retorna a altura.
+
+.scrollTo(0,0) joga o scroll pra cima e esquerda
+
+eventos do mouse
+	onclick= 'function'--- quando clica ele faz a função ou codigo(não precisar ser somente em botões)
+	onmouseover='' --- quando passa o mouse em cima ele faz um contagem.
+
+evento de teclado
+	onkeydown="" --- ao precionar a tecla faz o evento.
+	onkeyup="" --- ao soltar a tecla faz o evento.
+	exemplo de função:
+		if(parametro.keycode == 13){}  essa função pega o codigo da tecla e compara com 13 que é o codigo da tecla enter, se for igual a 13 execulta.
+
+mudar elemento do css
+	document.getElementById("telefone").style.display = "block";
+
+ array = []
+objeto = {}
+
+criar objeto
+	let carro = {
+	modelo:'uno',
+	ano:'2014'}
+chama um objeto
+	console.log(carro.modelo)
+
+dentro de uma array pode ter objetos e funções e outros arrays e vice e verça,
+como chamar array dentro de array
+	console.log(carro[2][1]);
+como chamaar objeto dentro de array
+	console.log(carro[2].modelo);
+
+fazer loop usando array
+	for(let i in carro) {
+  	conteudo += carros[i];
+}    --- ele percorre todo o array até terminar o loop.
+
+
+Metodos de String
+	
+		nome.lenght; -- para saber quantas letras tem uma string
+	
+		nome.indexOF('palavra'); ---para saber em qual posição começa uma palavra. ele vai mostra a posição dessa palavra, caso n tenha a palavra mostra -1.
+		
+		nome.slice(10, 20); -- pega a informação que está entra as posições informadas.(mostrar da linha 10 até a 20). só a primeira informação é obrigatoria. Pode ser com numero negativo, ira começar ao contrario, porem as palavras não aparecem ao contrario..
+
+		nome.substring(0,10) -- mesma coisa do slice, porem n aceita numero negativos.
+		
+		nome.substr(x,y); -- no x é a posição inicial que vai pegar, o y é o numero de caracteres que vai pegar. O MELHOR A SER USADO(mesma funcão do slice e substring).
+
+	Como substituir texto em uma string:
+		
+		nome.replace('Vinicius', 'jao');-- procura a priemeira palavra e substitui pela segunda.
+
+		nome.toUpperCase();-- deixa a string toda em maiusculo.
+		nome.toLowerCase(); -- deixa em minusculo.
+
+		nome.concat(' vinicius'); -- concatena a string com o vinicius. Porem não é muito util pois tem como concatenar de forma mais facil(nome += 'vinicius';)'
+		
+		nome.trim(); mostra o conteudo da string sem os espaços vazios.
+
+		nome.charAt(2); -- mostra qual letra está na posição informada. pode ser feito de outras formas(substr(3,1); ou nome[3]).
+
+!!!   	nome.split(' '); -- onde achar o caracter informado ele vai dividir e colocar no array. Nesse exemplo dividi pelo espaço entre as palavras. Muito util.
+
+		
+
+METODOS DE NUNBERS:
+	
+		n.toString(); -- transforma um numero em string.
+
+		n.toFixed(2); -- para escolher a quantidade de decimais vai aparecer depois do ponto.(10.2909238 --> 10.29).
+
+!!		res = parseInt(n) + 5; -- caso o 'n' for uma string dessa forma transforma em numero para fazer a soma. Muito Util.
+			parseFloat(n) --- vai considerar as casas decimais.
+	
+
+METODOS DE MANIPULAÇÃO DE ARRAYS; !!!!!!!! IMPORTANTE!!!!!!!!!
+	let lista = ['1','2','3','4']
+	
+		lista.toString(); -- junta os arrays em uma string. saida = 1,2,3,4
+
+		lista.join(-); -- junta o array e coloca o conteudo entre o conteudo do array transformando em string. saida = 1-2-3-4.
+
+				
+		lista.indexOf('2'); -- procura a posição no array e volta a posição no array, se n achar volta -1.
+			
+		lista.pop(); -- remove o ultimo item do array.
+	
+		lista.shift(); -- remove o primeiro item do array.
+
+		lista.push('5'); -- vai adicionar um novo item ao array. muito util 
+
+		lista[0] = '6'; altera o primeiro item da lista para 6.
+		lista[list.lenght] = '6'; altera o ultimo item da lista, quando vc n sabe quantos item possui.
+		
+		delete lista[1]; -- deleta o item, porem n deleta o espaço. [1,empty,3,4]
+		
+		lista.splice{1, 2} -- remove a partir do item 1 dois item. Deleta o item e o espaço.[1,3,4]
+
+		lista.concat(lista2); -- junta os dois arrays.
+
+		lista.sort(); -- ele organiza o array em ordem alfabetica.
+		lista.reverse(); -- inverte a ordem do array.
+	
+		lista.map(); -- ele vai rodar uma função dentro do () em todos os items do array. Exemplo: uma função que multiplique todos os numeros. Exemplo:
+			lista2 = lista.map(function(item){
+    				return item * 2;
+			}); --- passou o conteudo do array como "item" e rodou em todos as posições do array.
+
+	
+		lista.filter() -- dentro do () roda uma função que passa em todas as posições do array e retorna true ou false. exemplo:		
+			lista2 = lista.filter(function(item){
+   				 if(item <= 20)
+       				 return true;
+								return (item > 3)? true : false;  -- faz a mesma coisa porem resumido !!!!!!!!!!!!
+					
+			});  ---- vai checar em cada posição se é menor que 20, caso seja menor que 20 retorna o valor do item.
+
+		lista.every()  --- parecido com o .filter() porem ele roda em todos as posições de uma vez e retorna true ou false. exemplo: saber se todos os itens são maior q 20.
+
+		lista.some()  -- parecido com o .every() porem roda a função em todas as posições e retonar true caso somente 1 item for true.
+	
+		lista.find() --- roda uma função no () e roda em cada item do array e quando retornar true ele retorna o valor do item. Exemplo: para verificar se tem um item no array.
+
+		lista.findIndex() --- igual o .find() porem retorna a posição do item. exemplo: para achar a posição de um item dentro de um array.
+
+		
+	MANIPULAÇÃO E ETC COM DATAS
+		Os merses no javascript começam em 0, ent janeiro = 0 e dezembro = 11		
+
+		let d = new Date();
+			console.log(d.Tostring()); --- Pega o horario e data do navegador.
+
+		let d = new Date('2020-01-01 15:42:17'); gerar uma data com horario.
+	
+			 para pegar os parametros q quiser(minutos, horas, mese, etc) -- colocar .get e aparecera varias opções:
+				d.getDate()
+				d.getFullYear()
+
+		alterar a data atual:
+			d.setFullYears(2020);  -- mostrara a data atual porem o ano 2020 e isso afetara os dias dos meses e da semana tambem.
+		
+		aumentar a data atual:
+			d.setDate(d.getDate() + 5); --- aumentara 5 dias da data atual. A mesma coisa para fazer com horas, anos, minutos e etc.  
+		
+	
+
+	CLASSE MATH. CALCULOS MATEMATICO
+	
+		let novoValor = Math.round(8); --- se o numero for maior q 8 ele arredonda pra cima se for menor arredonda pra baixo.
+
+		let novoValor = Math.floor() -- ele sempre vai arredondar pra baixo n importa o valor
+		
+		let novoValor = Math.floor() -- arredonda pra cima não importa o valor.
+		 
+		-- Math.min(4,34,5,54,32,23); --- ele diz qual é o menor numero entre esses.
+		-- Math.max(); --- diz qual é o mairo entre todos.
+		-- Math.randon() - diz um numero aleatorio até 1.
+		-- Math.randon() * 100; -- uma forma de gerar um numero aleatorio mairo que 1, nesse caso até 100.
+
+		
+	CRIANDO UM TIMER PARA EXECUTAR CODIGOS, INTERVALO.
+	
+		let timer = setInterval(função, 1000);  -- a cada 1000 milisegundos(1s) ele executa a função.
+		clearInterval(função); -- interrompe o timer		
+		setTimeout(function() {}, 2000); -- roda a função somente no tempo indicado.mas
+	
+
+	TEMPLATE STRING , UMA FORMA MAIS LEGIVEL DE ESCREVER
+	
+		let frase = `Meu nome é @{nome} e eu tenho ${21} anos`; usa a crase, é um meio mais facil de ler e entender as frases.
+
+	
+	DESCONSTRUINDO OBJETOS
+		Tirar informações de objetos dentro de objetos	e de items.
+				
+		let {nome, sobrenome: sobrenomeNovo, idade = 0} = objeto. --- transforma os items em variaveis. O sobrenome está sendo salvo em uma variavel diferente da original(só se quiser mudar o nome da variavel). caso a idade esteja sem valor ira entrar como 0 ou qualquer numero que colocar, mas se tiver valor ira aparecer o valor do objeto e não o 0.
+		
+		let {nome,social:{instagram,facebook:{url,seguidores}}, idade=0} = objeto; -- o jeito de pegar itens e objetos dentro de objetos. somente "instagram vira variavel nesse caso.", dentro do objeto social tem o objeto facebook, e assim pode continuar a retirar objeto e itens dentro de outros objetos.
+
+		função nomeCompleto({nome, sobrenome = 'silva', social:{facebook}}) {
+			return: `${nome} ${sobrenome}`;
+		};  ---- dessa forma ele já passa os itens dentro do objeto como parametro e transforma em variavel.
+		
+		
+	DESCONTRUINDO ARRAY
+
+		let [nome,sobrenome,email] = array; --- ele vai pegar os itens do array em ordem e criar variaveis com o nome escrito.
+
+		let [nome,,email] = array; -- nesse caso ele pula o item 2.(pode pular quantos itens quiser).
+
+		let [a,b,c] = array(); --- uma forma de descontruir um array dentro de uma função.
+
+		
+	ARROW FUNCTIONS - função anonima.
+		são funções sem nome q somente executam e finalizam. estudar mais esse assunto.		
+
+		let somar = (X, Y) => X+Y; -- Uma forma diferente e mais rapida de escrever funções e já passar os parametros.[
+
+		let somar = (X, Y) => {
+
+		}; -- quando a função é maior usa o {}.
+
+	OPERADOR SPREAD
+		Uma forma de juntar mais itens em um objeto ou array.		
+
+		let infos= {
+   			nome:'vinicius',
+    			sobrenome:'kaya',
+   			 idade:21
+		};
+
+		let novasInfos = {
+			...infos,   --- colocar os ... e o nome do array ou objeto q deseja adcionar.
+   			cidade:'brasilia',
+   			estado:'DF',
+    			pais:'Brasil'
+		};
+
+	OPERADOR REST
+		quando vc nao sabe quantos parametros a função ira receber, vc usa o rest:
+		function adicionar (...numeros){
+		};  --- dessa forma pode recebe todos como um, array.
+
+	FUNÇÃO INCLUDE E REPEAT
+		lista.includes('carne'); ---- ele procura no array se possui o item 'carne', caso sim retorna true.
+		
+		nome.includes('a'); --- procura a letra em uma string, retornando true ou false.
+
+		console.log('x'.repeat(20));  --- a função ira repetir 'x' 20 vezes. 
+
+	OBJETOS KEYY, VALUE E ENTRIES. (quando se diz objetos quer dizer objetos e arrays).
+		
+		são funções que mostram oque cada objeto possui, como os itens, os valores, e as duas informações juntas:
+ 			console.log(Object.keys(lista)); --- ele vai retornar as chaves do array lista, com os numeros que cada item representam.
+			
+			console.log(Object.values(lista));  --- retonra os valores de cada array, mostra os itens dentro dos arrays.
+
+
+			console.log(Object.entries(lista));	---- retorna as chaves e os itens juntos.
+	
+		Quando se faz com um obejto nas keys ele retorna os itens, nos entries retorna os itens com os valores de cada item(nome:'Vinicius'), e entries os dois juntos.
+
+
+		STRING, PADSTART, PADEND
+		
+			let telefone = '5':
+			console.log(telefone.padEnd(9, ' *')); --- ele preenche a string caso o numero de letras for menor, O 9 é o numero de letras que deve possuir e o '*' é o que se deve colcoar pra preencher o restante(pode ser qualquer letra).
+				5********   --- nesse caso repetiu  a string telefone e preencheu com os *.
+
+			 console.log(telefone.padStart(9, ' *')); --- faz a mesma coisa, mas preenche ao contrario.
+
+		EXEMPLO(censurar primeiros digitos do cartão):
+
+			let cartão = '2342355252342342352';
+			let lastDig = cartão.slice(-4);
+			let cartãoMasc  = lastDig.padStart(16, '*');
+			console.log(cartãoMasc);
+
+				saida: ************2352
+
+
+		OQUE SÃO REQUISIÇÕES:
+			Quando se chama um servidor externo se faz um requisição. Quando vc faz um pedido ao servidor, seja uma imagem ou URL ou etc.
+			Puxar informações com a pagina atualizada, o usuario não percebe.
+		
+		OQUE SIGNIFICA JSON:
+			é um objeot usado para transportar dados.
+			é mostrado em uma linha só, é preciso aprender a ler dessa forma.
+			é um objeto porem os itens se escrevem com aspas duplas(exeto numeros).
+
+		JSON.parse
+			transforma a string recebida em json.
+			let pessoa = JSON.parse('{"nome:vinicius","idade":21}'); --- é uma string porem transforma em objeto, (tem que ter o formato de objeto e todos os itens com aspas duplas, exeto numeros).
+
+		JSON.stringfy
+			transforma um objeto em string JSON.
+
+
+		CODIGO SINCRONO E ASSINCRONO
+			Sincrono é um condigo que  executa as linhas uma depois da outra.
+			
+			Assincrono é quando executa outra linha sem ter terminado de executar outra.
+
+
+		CALLBACKS
+	
+		Uma função que vc cria que espera para dar o resultado, ela é executada primeiro porem é finalizada depois, seja por timer ou por latencia do servidor na hora de puzar alguma informação.  
+		
+
+		
+		PROMISSES
+			è uma promessa de um resultado que pode nem existir, vc cria uma função com promisse pois nao pois resultado e pode não ter.
+
+		FETCH Requisições
+
+			function loadPost() {
+  				fetch('https://jsonplaceholder.typicode.com/posts')
+        				.then(function(resultado) {
+          					return resultado.json();
+       			 	})
+        				.then(function(json){
+            				console.log(json);
+        				})
+    					.catch(function(error){
+       					 console.log("Deu problema!!!")
+    					})
+    
+			} ---- faz uma requisição a url depois cria uma função para pegar o json e depois transforma o json em objeto e depois mostra no console. o .catch serve para caso dê algum erro, aparecer a informação.
+
+
+
+			FETCH
+			
+				.then(function(json){
+           			let html = '';
+
+            		for(let i in json) {
+                			html += '<h3>'+ json[i].title +'</h3>';
+                 			html += json[i].body+'<br/>';
+                 			html+= '<hr/>';
+            		}
+    				document.getElementById("post").innerHTML = html;
+			---- exemplo de como montar uma lista no html e listar os itens do json.
+
+
+
+			FETCH COM ASYNC E AWAIT
+
+			async function loadPost() {
+    				document.getElementById("post").innerHTML = 'Carregando...';
+    
+    				let req = await fetch('https://jsonplaceholder.typicode.com/posts')
+    				let json = await req.json();
+    				montarblog(json);
+			}  
+
+--- dessa forma utiliza o async e await que faz rodar o codigo de forma sequencial, já o .then() e .catch() roda o codigo de forma paralela sendo mais rapido. 
+
+Um exemplo do uso do async await: caso vc tenha que acessar um banco de dados com milhares de registros, neste caso, não queremos que todas as requisições sejam feitas em paralelo, pois os excessos de requisições simutaneas pode causar problemas nos servidores e até ocorrer a queda.
+
+
+			UPLOAD DE ARQUIVOS
+
+				
+
+
+			MOSTRANDO UMA IMAGEM NO SITE SEM FAZER UPLOAD DA MESMA SYNCRONO
+	
+				function Mostrar() {
+    					let imagem = document.getElementById("imagem").files[0];
+
+    					let img = document.createElement('img');
+   					mg.src = URL.createObjectURL(imagem);
+  				  	img.width = 200;
+  					document.getElementById("area").appendChild(img);
+				};   --- cria um url e mostra depois a url no site.
+
+			

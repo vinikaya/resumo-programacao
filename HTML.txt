@@ -1,0 +1,138 @@
+html: 
+<!DOCTYPE html> = serve para o navegador ultiliar os recursos mais novos do html.
+
+<link rel="stylesheet" href="nome_arquivo_css" />  = serve para linkar o arquivo css no html.
+
+atributos: 
+
+   link- target="_blank"  = serve para abrir o link em outra aba.
+   link- title="nome da pagina"  = serve para mostrar o texto escrito ao passar o mouse em cima do link.
+   
+   Lista - type="Tipo de lista"   = seleciona o tipo de lista(a lista de letra minusculo, A letra maiuscula,1 numero,i numero romano, etc).
+   Lista - Start ="4"    = seleciona o numero que vai começar a lista.   
+
+	required = torna o campo do formulario obrigatorio.(usuario,senha,  etc).
+	minlength="2"  tamanho minimo do texto a ser enviado(usuario,senha,ect).
+	maxlength="10" tamanho maximo a ser enviado.
+	
+	step="2" quando o typo do formulario for number ao aumentar pela setinhas ele pula a quantidade de numeros escrita entre aspas.
+	min="3" defini o numero minimo permitido. serve para datas formatadas(2021-06-14).
+	max="100" defini o numero maximo permitido. serve para datas formatadas.
+	
+	enctype="multipart/form-data" = obrigatorio colocar no <form> para enviar imagens, trasnforma imagens em bit para enviar.
+
+
+TAGS:
+<h1> para titulo(aparece maior e em negrito).
+<a> para colocar links com atributo href="link".
+<p> paragrafo para texto.
+diferença entre <b> e <strong>:
+ os dois dão negrito mas o <strong> dá semantica de importancia(não visual mas por baixo do view).
+<i> deixa italico.
+<!-- comentario --> serve para colocar um comentario interno no codigo não aparece no site(explicação do codigo etc).
+
+<ul> lista desordenada
+<ol> lista ordenada(contagem de numero)
+<li> representa um intem dentro de uma lista(<ul> ou <ol>).
+obs:pode ser adicionado lista detro de lista.
+
+<small> diminui um pouco em relação ao texto em volta.
+<mark> deixa marcado como se fosse marca texto.
+<del> deixa uma linha em cima da palvra como se fosse invalidada.
+<sup> diminui o texto e coloca em cima a cima(serve para º).
+<sub> iguai <sup> mas deixa coloca o texto a baixo.
+
+criar tabela
+<table>
+<th>Cabesalho das colunas.(vai no inicio dentro do <table>);
+<tr> são as linhas da tabela(dentro do <table>)
+<td> são as colunas da tabela(dentro do <tr>).
+<thead> para colocar o cabeçalho dentro(n é visual, informa o navegador que é o navegador).
+<tbody> para colocar o conteudo da tabela(não é visual, informa o navegador que é o corpo).
+
+<form> para criar formulario, separar as informações.
+<form action=" pagina/login" > atributo para enviar as informações desse formulario.
+<form action=" pagina/login" method="post" > method=> metodo de envio das informações.
+<imput/> para escrever alguma informação.
+<imput type="text" /> usa o metodo type="" para escolher um tipo de informação
+
+TIPOS DE Type="":  text,  password, checkbox,tel,time,url,color
+radio(igual checkbox mas tem que colocar nome, nome igual não podem ser marcados duas vezes exemplo: genero),
+email(só aceita o texto com @),
+submit(botão de enviar)
+date(vai formatado em data), 
+datetime-local(com data e hora),
+number(só aceita numeros)
+week(semana do ano)
+hidden(envia a informação escondida, não aparece para o usuario mas é enviado junto com o formulario)
+file = enviar arquivos( só envia com o method="post").
+.
+<imput type="text" value="123" /> já carrega a pagina com o texto preenchido.
+
+<select> checkbox para selecionar opões(exemplo:mais vendidos e recentes)
+<option> vai dentro do select são as opções(mais recentes ou mais vendidos,etc).
+<textarea> cria um campo para digitar no site.(precisa do atributo name="" para ser enviado).
+
+<button>cria botão e o texto é o nome do botão.
+<label> nome ou texto referente ao formulario enviado, vincula texto ao checkbox ou caixa de texto.
+
+<fieldset> cria um quadrado visual para organizar os itens de dentro(label, input etc).
+<legend> dentro do <fieldset> escreve um nome para o mesmo
+
+<header> fala pra pagina que todo conteudo nessa aréa é referente ao titulo da pagina.(para os motores de busca saber oq o site fala exp.:google)
+<nav> dizer ao motores de busca e principalmente para cegos e surdos que oque tem dentro dessa area é referente a navegação(ou menu principal).
+<footer> rodapé do site(quem criou, termos de uso etc).
+<section> separar por assunto as sections. ajuda a separar a pagina por assuntos
+<article>dizer ao motor de busca que ai está o conteudo principal do site. O motor de busca procura palavras chaves ai.
+<aside> é o conteudo secundario da pagina contrario de <article>.
+<time> ajuda o motor de busca a indentificar datas atributo <time datetime="2000-10-11">meu aniversario<time/>
+
+<div data-nome="vinicius"> salva dados no codigo sem aparecer na pagina, mas fica salvo no codigo(data-qualquerInformação="qualquer coisa", pode ser usado em qualquer tag.
+
+<video widht="320" height="340" control autoplay> (control mostra os controles do player de video) autoplay inicia o video automaticamente.
+       <source src="video de teste.mp4" type="video/mp4"/> para colocar o video.
+</video> inserir video, funciona em todos os navegadores modernos.
+
+
+<audio controls autoplay loop muted preload> igual video mas para adicionar audio.
+    <source src="som.mp3" type="audio/mpeg"/>
+</audio>
+
+Placeholder - serve para colocaar o nome dentro da caixa de pesquisa.
+      <input type="text" name="usuário" placeholder="Usuário" >
+
+autofocus - serve para carregar o site com o campo de pesquisa pronto para digitar.
+      <input type="text" name="usuário" placeholder="Usuário" autofocus >
+
+maxlenght="4" - Serve para bloquear o numero de caracteres em um campo de texto.
+     <input type="password" name="senha" placeholder="senha" maxlength="4"/>
+
+required - só envia o campo se o campo estiver preenchido.
+      <input type="password" name="senha" placeholder="senha" maxlength="4" required/>      
+
+autocomplete="off" para mostrar opções já digitada, serve para desativar caso necessario.
+        <input type="password" name="senha" placeholder="senha" maxlength="4" autocomplete="off"/>
+
+tag meta, usada para pré-visualizar o site ao colar o link no facebook.
+    <meta property="og:url" content="http://www.viniciusblogsmusic.com.br"/>
+     <meta property="og:type" content="article" />
+     <meta property="og-title" content="musicas preferidas de vinicius" />
+
+<dl> serve para abrir bloco para descrição de item
+   <dt> o item
+      <dd> a descrição do item.
+serve para o navegador entender que é uma descrição do item. pode abrir listas com o <ul> <li>
+
+<q> colocar entre uma sitação, para mostrar para o navegador que é uma citação. citação pequena.
+
+<blockquote cite="https://www.sitedacitação.com.br" > abrir um bloco de citação e colocar o link da citação. colocar o link para o navegador entender que é uma citação e de onde vem. citação maior e mais elaborada.
+
+<main> é o conteudo principal da pagina, o conteudo que só aparece naquela pagina, só pode ter uma no site todo. pode ter a tag<main> dentro da tag <section> mas não pode dentro das tags <article> , <aside>, <footer>, etc.
+
+<address> dizer ao navegador que essa seção é de endereço e contato da empresa (tell, email, links, endereço, etc)  no site, pode ter mais de uma tag, mas normalmente só usa uma.
+
+<figure> para colocar uma imagem dentro. usa a tag < img> dentro da <figure>, use a <figcaption> tambem dentro da <figure> para descrever a imagem, tipo legenda.
+
+
+FLEXBOX
+uma forma de fazer o layoute no html, deixando todas as divs e elementos flexiveis e adaptaveis.
