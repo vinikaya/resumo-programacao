@@ -24,7 +24,7 @@ git checkout HEAD -- style.css --- ele vai voltar somente esse arquivo seleciona
 
 
 
-		RESETAR UMA CoMMIT(VOLTAR UM AVERSÃO DO ARQUIVO)
+		RESETAR UMA COMMIT(VOLTAR UM AVERSÃO DO ARQUIVO)
 
 git reset --soft 21ef249fe87453baf9ecc4685e545975cc624f42 --- esse numero é o hash do commit a ser resetado.
 
@@ -34,7 +34,9 @@ git reset --mixed --- ele faz a mesma coisa porem os aquivos não voltam traquea
 
 git reset --hard ---  ele apaga com a commit resetada, tudo na commit que foi resetada some.
 
-		BRANCH (é uma linha do tempo diferente para o mesmo arquivo, apartir da criação do novo branch pode ser criado novos arquivos e etc, e um não afetara o outro)
+		
+
+		!!!!!!!!!BRANCH!!!!!!!!! (é uma linha do tempo diferente para o mesmo arquivo, apartir da criação do novo branch pode ser criado novos arquivos e etc, e um não afetara o outro)
 
 git branch teste --- assim se cria um novo branch.
 
@@ -60,3 +62,31 @@ git reverse --no-edit a73897890bcfb7e986ea8bc357bd4199e8cd0fc6 --- O commit deu 
 Ele cria um novo comit com o mesmo nome porem falando que é o reverse, esse novo commit não tera as alterações feitas no commit usado no reverse, porem voce pode recuperar esse commit depois para concertar os erros.
 
 git reset --hard a73897890bcfb7e986ea8bc357bd4199e8cd0fc6 --- dessa forma voce volta o commit que foi usado no reverse na sexta feira, recuperando tudo.
+	
+
+		REMOVENDO BRANCH LOCAL E REMOTO(REMOVER)
+
+git push origin :teste --- uma forma de remover um branch remoto
+
+git branch -D teste --- pare remover uma branch local, para deletar tem que antes sair da mesma.
+
+
+
+		COMO PUXAR OS COMMITS CRIADO DIRETO NO REPOSITORIO REMOTO(PULL)
+
+git pull origin main ---- ele vai puxar tudo do repositorio remoto para o local(o origin é o repositorio remoto e o main a branch local que vai receber)
+
+	
+		CLONANDO UM PROJETO DE UM REPOSITORIO REMOTO NO LOCAL
+
+git clone link do github do repositorio
+
+git remote -v  ---- para saber o nome do repositorio remoto para enviar.
+	
+	Para clonar um repositorio de outra pessoa no seu github, apertar o botão fork, vai criar um projeto clone no seu repositorio remoto.
+
+
+			!!!!!!!Boa praticas!!!!!!!!
+
+se após dar um git log o cmd travar no arquivo pressione "q"
+Sempre antes de começar a trabalhar em um repositorio dar um pull, para que o repositorio remoto esteja igual o local e não dê erro de sincronia.
