@@ -90,3 +90,5 @@ git remote -v  ---- para saber o nome do repositorio remoto para enviar.
 
 se após dar um git log o cmd travar no arquivo pressione "q"
 Sempre antes de começar a trabalhar em um repositorio dar um pull, para que o repositorio remoto esteja igual o local e não dê erro de sincronia.
+
+mensagem de estar remoto em dois computadores, caso receba deu bom.
