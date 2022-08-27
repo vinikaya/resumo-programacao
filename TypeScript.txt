@@ -1,0 +1,87 @@
+tsc script.ts ---- gera o arquivo javascript.
+
+tsc script.ts --noEmitOnError  --- quando tiver erro o arquivo não é gerado.
+
+Tipando as variaveis(nem sempre é necessario tipar, exemplo quando vc colocar o valor number de uma variavel no codigo, porem se o number for um input é necessario a tipagem):
+
+	let nome: string = 'vinicius';
+	let idade: number = 21;
+	let programador: boolean = false;
+
+Tipando os arrays:
+	
+	let nomes: string[] = ['vinicius','jao'];
+	let idades: number[] = [90, 30, 32];
+	let idades: Array<number> = [90, 30, 32]; --- mesma coisa do exempo a cima, porem é mais recomendado usar o primeiro exemplo.
+
+
+Type any(faz o typescript ignorar a verificação de tipagem, logo aceita variaveis com tipos diferentes, porem é recomendado usar somente em ultimo caso):
+
+	let nomes23: any = ['vini', 90];
+	
+
+função com tipagem(função que deixa a primeira letra maiuscula funcional):
+	
+	function firstletteruppercase(name: string){
+    		let firstletter = name.charAt(0).toUpperCase();
+    		return firstletter+name.substring(1);
+	}
+
+
+tipando o retorno da função:
+
+	function somar (n1, n2): number {};
+
+tipangem em objetos:
+
+	function resumo (usuario: {nome:string, idade?: number}) { --- a interrogação serve para dizer que a idade pode ser enviada ou não, caso idade não seja recebido o valor dela será undefined e pode ser usado em um if.
+	}
+
+	let u = {
+   		nome: 'vinicius',
+    		idade: 21
+	}	
+	
+	resumo(u);
+
+
+union types, a variavel pode possuir mais de um tipo:
+
+	let idade: string | number = 90;  --- nesse caso a variavel idade pode receber tanto string quanto number.
+
+
+Criando um type proprio:
+
+	type idade = string | number;
+		
+	let idade: idade = 90; ---- usando o tipo idade ele já reconhece que é string e number.
+	
+
+criando um type para um objeto:
+
+	type User = {
+	nome: string,
+	idade: number
+	}
+	function resumo(usuario:User){} --- somente usando o user já tipa todos os objetos.
+
+
+Criando interface(igual o type, usado para objetos):
+	
+	interface User {
+	nome: string;
+	idade: number;
+	}
+
+	interface User {  --- foi adicionado o item numero ao User.
+	numero: number
+	}
+
+Diferença entre o type e interfaces: Depois que o type foi criado não pode ser adicionado novos itens, já interface pode.
+
+
+Especificando elementos do html no typescript:
+
+	let idadeField = document.getelementById('idade') as HTMLInputElement;
+
+

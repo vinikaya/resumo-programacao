@@ -1,0 +1,17 @@
+		Oque é um banco de dados:
+	São informações ordenadas e armazenadas.
+
+		MySQL e MariaDB:
+	O mariaDB é uma versão melhorada do MySQL, mais rapido e com algumas funcionalidades a mais, porem os dois são muitos bons, ao aprender um automaticamente se aprende o outro.
+	
+		Existem 4 grandes operações a fazer em um banco de dados:
+	- C: Create = Criar = INSERIR DADOS
+	- R: Read = Ler = PEGAR DADOS
+	- U: Update = Atualiar = MODIFICAR DADOS EXISTENTES
+	- D: Delete = Excluir = REMOVER DADOS EXISTENTES
+
+		MySQL usa a porta padrão: 3306
+
+
+		Tipos de dados das colunas de um banco de dados:
+	
