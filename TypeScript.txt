@@ -84,4 +84,61 @@ Especificando elementos do html no typescript:
 
 	let idadeField = document.getelementById('idade') as HTMLInputElement;
 
+Types literias:(ele diz que os valores de retorno só podem ser esses, pode usaar variaveis, valores e etc).
+	
+	funtion valida(): true | false | 'verdadeiro' {}
 
+Inferencia literal:(Ele reafirma que o method só pode receber o get e o post.)
+	
+	funtiona faze(method: 'GET' | 'POST') {}
+	type methods = 'GET' | 'POST';
+	faze(method: methods = 'GET');
+
+Types para funções:(cria um type que diz os tipos das variaveis e o tipo do retorno)
+
+	type MatchFunction = (n1: number, n2: number) => number;
+
+	const somar: MatchFunction = (n1, n2 )=> {
+    		return n1+n2;
+	}
+
+Void:( é usado quando a função não tem retorno, o type coloca automaticamente, porem pode ter outros usos, exemplo com um return dentro de um IF mesmo com o void não da erro, pois está dentro do if)
+	
+	functiona remover(): void {}
+
+
+WatchMode, serve para alterar o arquivo TS e automaticamente mudar o arquivo JS em tempo real.
+
+	No terminal: tsc src/script.ts -w
+	para parar ctrl+c
+
+
+tsconfig.json, arquivo de configuração do ts:
+
+	terminal: tsc --init ---- escrever tsc no terminal configura todos os arquivos ts no projeto. Escrever tsc -w no terminal deixa todo o projeto sendo atualizado em tempo real, todos os arquivos.
+
+
+Dentro da pasta tsconfig.json usar "exclude", todos os arquivos que forem colocados não serão configurados.
+	, "exclude": ["src/script.ts"]
+
+
+include faz com que só dentro do include seja atualizados.
+	, "include":[ "src/*", "app.ts"] --- somente todos os arquivos da pasta src e um arquivo fora da pasta spp.ts.
+
+
+Trabalhando com Libs, dentro do arquivo tsconfig.json, tem um item "lib", habilita esse item e coloca as lib que serão utilizadas, exemplo:
+	"lib":["DOM", "ES5", DOM.Iterable", "ScriptHost"] --- esses quatro são o padrão para usar o ts, se deixar o lib comentado não muda.
+
+
+OutDir, é um item do tsconfig.json, que diz ondem serão gerados os arquivos js:
+	"outDir": "./public/js"
+
+rootDir, diz onde estão os arquivos ts, e será replicado no outdir, toda a estrutura será replicada(nome de pastas). normalmente é usado junto com o outdir.tconfig
+
+"removeComments": true, os comentario feitos no arquivo TS serão removidos no arquivo JS, é bom pois diminui o codigo js.tsconfig
+
+"noEmitOnError": true, (tem q adicionar no tsconfig.json)não executa nenhum arquivo quando tiver agum erro, é bom pois se tiver um erro em um arquivo, não vai gerar o outros, podendo comprometer o projeto.tsconfig
+
+"noUnusedLocals": true, avisa quando uma variavel não é usasada em escala local.tsconfig
+
+"noUnusedParameters": true, avisa quando um parametro de uma função não é ultilizado. tsconfig
